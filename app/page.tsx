@@ -31,7 +31,9 @@ export default function AmigaiPresentacion() {
             <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800">
               AmigAI
             </h1>
-            <Badge variant="outline" className="mt-2">Tu amig@ virtual</Badge>
+            <Badge variant="outline" className="mt-2">
+              Tu amig@ virtual
+            </Badge>
           </div>
         </div>
 
@@ -52,14 +54,27 @@ export default function AmigaiPresentacion() {
           <div className="mt-8">
             <Tabs defaultValue="resumen" className="w-full">
               <TabsList className="w-full overflow-x-auto flex-nowrap justify-start mb-4 gap-2 p-1">
-                <TabsTrigger value="resumen" className="whitespace-nowrap">Resumen</TabsTrigger>
-                <TabsTrigger value="caracteristicas" className="whitespace-nowrap">
+                <TabsTrigger value="resumen" className="whitespace-nowrap">
+                  Resumen
+                </TabsTrigger>
+                <TabsTrigger
+                  value="caracteristicas"
+                  className="whitespace-nowrap"
+                >
                   Características
                 </TabsTrigger>
-                <TabsTrigger value="valor" className="whitespace-nowrap">Valor</TabsTrigger>
-                <TabsTrigger value="tecnologia" className="whitespace-nowrap">Tecnología</TabsTrigger>
-                <TabsTrigger value="roadmap" className="whitespace-nowrap">Roadmap</TabsTrigger>
-                <TabsTrigger value="mockups" className="whitespace-nowrap">Mockups</TabsTrigger>
+                <TabsTrigger value="valor" className="whitespace-nowrap">
+                  Valor
+                </TabsTrigger>
+                <TabsTrigger value="tecnologia" className="whitespace-nowrap">
+                  Tecnología
+                </TabsTrigger>
+                <TabsTrigger value="roadmap" className="whitespace-nowrap">
+                  Roadmap
+                </TabsTrigger>
+                <TabsTrigger value="mockups" className="whitespace-nowrap">
+                  Mockups
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="resumen">
                 <ProjectInfo />

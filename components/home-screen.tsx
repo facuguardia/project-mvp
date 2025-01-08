@@ -8,14 +8,14 @@ export function HomeScreen() {
       <header className="text-center mb-6 md:mb-8">
         <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 md:px-4 py-1.5 rounded-full mb-4">
           <Sparkles size={14} className="animate-pulse" />
-          <span className="text-xs md:text-sm font-medium">Tu espacio seguro</span>
+          <span className="text-xs md:text-sm font-medium">
+            Tu espacio seguro
+          </span>
         </div>
         <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           AmigAI
         </h1>
-        <p className="text-sm text-gray-600 mt-2">
-          Tu compañero emocional
-        </p>
+        <p className="text-sm text-gray-600 mt-2">Tu compañero emocional</p>
       </header>
 
       <div className="grid grid-cols-1 gap-3 md:gap-4 mb-6">

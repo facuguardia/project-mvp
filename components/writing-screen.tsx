@@ -43,7 +43,8 @@ export function WritingScreen() {
             <span className="text-sm font-medium">Sugerencia de AmigAI</span>
           </div>
           <p className="text-gray-700">
-            Parece que estás teniendo un día productivo. ¿Te gustaría explorar qué aspectos de tu rutina están contribuyendo a tu bienestar?
+            Parece que estás teniendo un día productivo. ¿Te gustaría explorar
+            qué aspectos de tu rutina están contribuyendo a tu bienestar?
           </p>
         </CardContent>
       </Card>
