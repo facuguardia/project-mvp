@@ -1,101 +1,199 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PitchElevator } from "@/components/pitch-elevator";
+import { ProjectInfo } from "@/components/project-info";
+import { MoodChart } from "@/components/mood-chart";
+import { Technology } from "@/components/technology";
+import { Mockups } from "@/components/mockups";
+import { Badge } from "@/components/ui/badge";
 
-export default function Home() {
+export default function AmigaiPresentacion() {
+  const [showContent, setShowContent] = useState(false);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-16">
+        <div className="flex justify-center items-center gap-4 mb-4">
+          <Image
+            src="/logo.jpg"
+            alt="AmigAI Logo"
+            className="rounded-full"
+            width={100}
+            height={100}
+          />
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-4xl font-bold text-center text-gray-800">
+              AmigAI
+            </h1>
+            <Badge variant="outline">Tu amig@ virtual</Badge>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <PitchElevator />
+
+        <div className="text-center mt-8">
+          <Button
+            onClick={() => setShowContent(!showContent)}
+            variant="outline"
+          >
+            {showContent ? "Ocultar detalles" : "Descubre más"}{" "}
+            <ChevronDown className="ml-2" />
+          </Button>
+        </div>
+
+        {showContent && (
+          <div className="mt-12">
+            <Tabs defaultValue="resumen" className="w-full">
+              <TabsList className="w-full justify-start mb-4">
+                <TabsTrigger value="resumen">Resumen</TabsTrigger>
+                <TabsTrigger value="caracteristicas">
+                  Características
+                </TabsTrigger>
+                <TabsTrigger value="valor">Valor Agregado</TabsTrigger>
+                <TabsTrigger value="tecnologia">Tecnología</TabsTrigger>
+                <TabsTrigger value="roadmap">Roadmap</TabsTrigger>
+                <TabsTrigger value="mockups">Mockups</TabsTrigger>
+              </TabsList>
+              <TabsContent value="resumen">
+                <ProjectInfo />
+              </TabsContent>
+              <TabsContent value="caracteristicas">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Características Principales</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li>Escritura de diario con retroalimentación de IA</li>
+                      <li>Análisis de sentimientos y emociones</li>
+                      <li>Retos y ejercicios de escritura personalizados</li>
+                      <li>Seguimiento del estado de ánimo</li>
+                      <li>Espacio seguro y confidencial</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="valor">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Valor Agregado</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <h3 className="font-semibold mb-2">
+                        Personalización Emocional
+                      </h3>
+                      <p>
+                        IA que se adapta a diferentes estilos emocionales y
+                        necesidades individuales.
+                      </p>
+                    </div>
+                    <div className="mb-4">
+                      <h3 className="font-semibold mb-2">
+                        Seguimiento del Estado de Ánimo
+                      </h3>
+                      <MoodChart />
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="tecnologia">
+                <Technology />
+              </TabsContent>
+              <TabsContent value="roadmap">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Roadmap del Proyecto</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ol className="list-decimal pl-5 space-y-2">
+                      <li>
+                        Desarrollo del MVP con funcionalidades básicas
+                        <ul className="list-disc pl-5 mt-2">
+                          <li>
+                            Implementación de la interfaz de usuario básica
+                          </li>
+                          <li>
+                            Integración del modelo de IA para retroalimentación
+                            simple
+                          </li>
+                          <li>
+                            Desarrollo del sistema de seguimiento de estado de
+                            ánimo
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Pruebas con un grupo reducido de usuarios
+                        <ul className="list-disc pl-5 mt-2">
+                          <li>Selección de 10 usuarios beta</li>
+                          <li>
+                            Recopilación de feedback a través de encuestas y
+                            entrevistas
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Iteración basada en el feedback recibido
+                        <ul className="list-disc pl-5 mt-2">
+                          <li>Análisis de datos y feedback de usuarios</li>
+                          <li>Implementación de mejoras y correcciones</li>
+                        </ul>
+                      </li>
+                      <li>
+                        Implementación de características avanzadas de IA
+                        <ul className="list-disc pl-5 mt-2">
+                          <li>
+                            Mejora del modelo de IA para personalización
+                            avanzada
+                          </li>
+                          <li>
+                            Implementación de retos y ejercicios de escritura
+                            guiada
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Lanzamiento de la versión beta pública
+                        <ul className="list-disc pl-5 mt-2">
+                          <li>
+                            Preparación de la infraestructura para escalar
+                          </li>
+                          <li>
+                            Campaña de marketing para atraer usuarios beta
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        Expansión a múltiples plataformas
+                        <ul className="list-disc pl-5 mt-2">
+                          <li>
+                            Desarrollo de aplicaciones nativas para iOS y
+                            Android
+                          </li>
+                          <li>
+                            Optimización de la experiencia de usuario en
+                            diferentes dispositivos
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="mockups">
+                <Mockups />
+              </TabsContent>
+            </Tabs>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
