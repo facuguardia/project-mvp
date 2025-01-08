@@ -18,20 +18,20 @@ export default function AmigaiPresentacion() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex justify-center items-center gap-4 mb-4">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-4">
           <Image
             src="/logo.jpg"
             alt="AmigAI Logo"
-            className="rounded-full"
+            className="rounded-full w-20 h-20 md:w-24 md:h-24"
             width={100}
             height={100}
           />
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl font-bold text-center text-gray-800">
+            <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800">
               AmigAI
             </h1>
-            <Badge variant="outline">Tu amig@ virtual</Badge>
+            <Badge variant="outline" className="mt-2">Tu amig@ virtual</Badge>
           </div>
         </div>
 
@@ -41,6 +41,7 @@ export default function AmigaiPresentacion() {
           <Button
             onClick={() => setShowContent(!showContent)}
             variant="outline"
+            className="w-full md:w-auto"
           >
             {showContent ? "Ocultar detalles" : "Descubre más"}{" "}
             <ChevronDown className="ml-2" />
@@ -48,17 +49,17 @@ export default function AmigaiPresentacion() {
         </div>
 
         {showContent && (
-          <div className="mt-12">
+          <div className="mt-8">
             <Tabs defaultValue="resumen" className="w-full">
-              <TabsList className="w-full justify-start mb-4">
-                <TabsTrigger value="resumen">Resumen</TabsTrigger>
-                <TabsTrigger value="caracteristicas">
+              <TabsList className="w-full overflow-x-auto flex-nowrap justify-start mb-4 gap-2 p-1">
+                <TabsTrigger value="resumen" className="whitespace-nowrap">Resumen</TabsTrigger>
+                <TabsTrigger value="caracteristicas" className="whitespace-nowrap">
                   Características
                 </TabsTrigger>
-                <TabsTrigger value="valor">Valor Agregado</TabsTrigger>
-                <TabsTrigger value="tecnologia">Tecnología</TabsTrigger>
-                <TabsTrigger value="roadmap">Roadmap</TabsTrigger>
-                <TabsTrigger value="mockups">Mockups</TabsTrigger>
+                <TabsTrigger value="valor" className="whitespace-nowrap">Valor</TabsTrigger>
+                <TabsTrigger value="tecnologia" className="whitespace-nowrap">Tecnología</TabsTrigger>
+                <TabsTrigger value="roadmap" className="whitespace-nowrap">Roadmap</TabsTrigger>
+                <TabsTrigger value="mockups" className="whitespace-nowrap">Mockups</TabsTrigger>
               </TabsList>
               <TabsContent value="resumen">
                 <ProjectInfo />

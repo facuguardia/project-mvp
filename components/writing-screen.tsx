@@ -8,19 +8,19 @@ export function WritingScreen() {
   const [entry, setEntry] = useState("");
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 rounded-xl shadow-inner min-h-[600px] flex flex-col">
-      <header className="flex justify-between items-center mb-6">
+    <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4 md:p-6 rounded-xl shadow-inner min-h-[500px] md:min-h-[600px] flex flex-col">
+      <header className="flex justify-between items-center mb-4 md:mb-6">
         <Button variant="ghost" size="icon" className="hover:bg-white/50">
-          <ArrowLeftIcon className="h-5 w-5" />
+          <ArrowLeftIcon className="h-4 w-4 md:h-5 md:w-5" />
         </Button>
         <div className="flex flex-col items-center">
-          <h2 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Nueva Entrada
           </h2>
           <span className="text-xs text-gray-500">15 de Mayo, 2024</span>
         </div>
         <Button variant="ghost" size="icon" className="hover:bg-white/50">
-          <SmileIcon className="h-5 w-5" />
+          <SmileIcon className="h-4 w-4 md:h-5 md:w-5" />
         </Button>
       </header>
 
